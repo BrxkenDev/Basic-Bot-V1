@@ -8,6 +8,8 @@ exports.run = async (client, message, args) => {
   if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("You do not have sufficient priveliges.");
   if (kUser.hasPermission("KICK_MEMBERS")) return message.channel.send("User cannot be kicked.")
   
+  if(!kReason)
+return message.channel.send("Please provide a reason")
   let embed = new RichEmbed()
   .setDescription("Kick")
   .setColor("#7289DA")
