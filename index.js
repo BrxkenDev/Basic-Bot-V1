@@ -2,14 +2,14 @@
 const active = new Map();
 
 const Discord = require("discord.js");
-const fs = require('fs');
+const fs = require('fs')
 const prefix = process.env.Prefix;
 
 const bot = new Discord.Client({disableEveryone: true});
 
 bot.on("ready", async() => {
     console.log(`${bot.user.username} is online`);
-    bot.user.setActivity(`V1 Coming Soon`)
+    bot.user.setActivity(`V1 is Here`)
 });
 
 bot.on("message", async message => {
