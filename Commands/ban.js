@@ -1,12 +1,15 @@
+const {RichEmbed} = require("discord.js")
 
 exports.run = async (client, message, args) => {
   
   let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
   if(!bUser) return message.channel.send("Can't find user!");
   let bReason = args.join(" ").slice(22);
-  if (!message.member.hasPermission("BAN_MEMBERS")) return errors.noPerms(message, "BAN_MEMBERS");
+  if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You do not have sufficient priveliges.");
   if (bUser.hasPermission("BAN_MEMBERS")) return message.channel.send("User cannot be banned.")
   
+  if(!bReason)
+return message.channel.send("Please provide a reason")
   let embed = new RichEmbed()
   .setDescription("Ban")
   .setColor("#7289DA")
